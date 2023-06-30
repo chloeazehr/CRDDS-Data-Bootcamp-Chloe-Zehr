@@ -1,10 +1,12 @@
 # CRDDS-Data-Bootcamp-Chloe-Zehr
 This repository contains R script and analyses of text data from South Carolina interviews with formerly enslaved people form the early twentieth century. 
 
-Question: 
+**Disclaimer – the data used in this project contains racist profanity due to its context and content, I have done my best to not reinforce, nor use any of this language within my analyses**
+
+**Question:**
 What does POS tagging reveal about noun co-occurrence in interviews with formerly enslaved people from the early twentieth century? How might noun co-occurrences reflect historical consensus and do patterns emerge? What can we glean from the perspective of the interviewees and what are the data’s limits?
 
-Dataset & Variables: 
+**Dataset & Variables:** 
 For this project, I generated a text corpus from the first four volumes of South Carolina’s Slave Narratives: A Folk History of Slavery in the United States from Interviews, accessible through the Project Gutenberg online. Using the “gutenbergr” package in RStudio, along with the “tidyverse” and “udpipe” packages, I downloaded all four volumes of text and basic metadata (Gutenberg ID) directly into my environment. The combined text for all four volumes is stored in a dataframe/variable called “scnarratives_works.” The cleaned data is stored in a csv file. 
 	Using part of speech tagging with the package “udpipe” I created the dataframe/variable “scnarratives_annotated,” which stores all the POS tags for the corpus. Using this variable, I generated noun co-occurrence data to create a network graph of terms used in the corpus. Because my corpus is fairly small, I opted to use a skipgram model to iterate over the text for co-occurrence within a 30 term window (which is fairly standard for basic textual analysis). 
  For this project, I generated a text corpus comprised of the first four volumes of South Carolina’s Slave Narratives: A Folk History of Slavery in the United States from Interviews, accessible through the Project Gutenberg online. Using the “gutenbergr” package in RStudio, along with the “tidyverse” and “udpipe” packages, I downloaded all four volumes of text and basic metadata (Gutenberg ID) directly into my environment. The combined text for all four volumes is stored in a dataframe/variable called “scnarratives_works.” 
