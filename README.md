@@ -1,5 +1,5 @@
 # CRDDS-Data-Bootcamp-Chloe-Zehr
-This repository contains R script and analyses of text data from South Carolina interviews with formerly enslaved people form the early twentieth century. 
+This repository contains R script and analyses of text data from South Carolina interviews with formerly enslaved men and women from the early twentieth century. 
 
 ## Disclaimer
 The data used in this project contains racist profanity due to its historical context. I have taken care to avoid reinforcing or using such language in my analyses, while maintaining the integrity of the original text for research purposes.
