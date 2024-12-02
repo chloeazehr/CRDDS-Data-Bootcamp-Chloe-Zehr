@@ -54,6 +54,11 @@ The text corpus for this project was derived from the first four volumes of *Sou
 
 ---
 
+## Additional Resources:
+The digital ecosystem [Black Beyond Data](https://www.lifexcode.org/bbd) highlights some of the critical current conversations surrounding Black historical and modern data. This resource as well as the body of interdisciplinary projects and labs hosted by [LifexCode](https://www.lifexcode.org/) offer new insights into how scholars, humanists, policy-makers, medical professionals, coders, and more are reckoning with data and digital humanities. 
+
+---
+
 ## Acknowledgments
 A special thanks to the team at CU Boulder’s CRDDS for their excellent guidance and support throughout this project.
 
