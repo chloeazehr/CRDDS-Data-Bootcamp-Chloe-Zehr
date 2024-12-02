@@ -1,20 +1,61 @@
 # CRDDS-Data-Bootcamp-Chloe-Zehr
 This repository contains R script and analyses of text data from South Carolina interviews with formerly enslaved people form the early twentieth century. 
 
-**Disclaimer – the data used in this project contains racist profanity due to its context and content, I have done my best to not reinforce, nor use any of this language within my analyses**
+## Disclaimer
+The data used in this project contains racist profanity due to its historical context. I have taken care to avoid reinforcing or using such language in my analyses, while maintaining the integrity of the original text for research purposes.
 
-**Question:**
-What does POS tagging reveal about noun co-occurrence in interviews with formerly enslaved people from the early twentieth century? How might noun co-occurrences reflect historical consensus and do patterns emerge? What can we glean from the perspective of the interviewees and what are the data’s limits?
+---
 
-**Dataset & Variables:** 
-For this project, I generated a text corpus from the first four volumes of South Carolina’s Slave Narratives: A Folk History of Slavery in the United States from Interviews, accessible through the Project Gutenberg online. Using the “gutenbergr” package in RStudio, along with the “tidyverse” and “udpipe” packages, I downloaded all four volumes of text and basic metadata (Gutenberg ID) directly into my environment. The combined text for all four volumes is stored in a dataframe/variable called “scnarratives_works.” The cleaned data is stored in a csv file. 
-	Using part of speech tagging with the package “udpipe” I created the dataframe/variable “scnarratives_annotated,” which stores all the POS tags for the corpus. Using this variable, I generated noun co-occurrence data to create a network graph of terms used in the corpus. Because my corpus is fairly small, I opted to use a skipgram model to iterate over the text for co-occurrence within a 30 term window (which is fairly standard for basic textual analysis). 
- For this project, I generated a text corpus comprised of the first four volumes of South Carolina’s Slave Narratives: A Folk History of Slavery in the United States from Interviews, accessible through the Project Gutenberg online. Using the “gutenbergr” package in RStudio, along with the “tidyverse” and “udpipe” packages, I downloaded all four volumes of text and basic metadata (Gutenberg ID) directly into my environment. The combined text for all four volumes is stored in a dataframe/variable called “scnarratives_works.” 
-	Using part of speech tagging with the package “udpipe” I created the dataframe/variable “scnarratives_annotated,” which stores all the POS tags for the corpus. Using this variable, I generated noun co-occurrence data to create a network graph of terms used in the corpus. Because my corpus is small, I used a skipgram model to iterate over the text for co-occurrence within a 30-term window (which is standard for basic textual analysis). Then I used the occurrence function to determine noun cooccurrence and produce a network graph to visualize the nodes and edges between frequent terms.
-	The network graph which is included in the GitHub repository highlights three significant findings. First, the visualization makes clear the semantic connection between terms like “master” and “slave” from the perspective of formerly enslaved interviewees. In contrast to colonial archives, where terms, such as “slave,” are more associated with commodities, labor, and trade, the dataset from South Carolina interviews highlights alternate perspectives (though in many ways it still reflects the systemic oppression of white supremacy and racial slavery). For instance, the term slave also co-occurs with the word “mother,” suggesting that, unlike contemporary white authored sources, interviewees understood their past status as enslaved and yet maintained their identities as mothers, families, and communities. While this all may be obvious, it is important to note that datasets such as this highlight that it is possible, and imperative, to use digital methods (and all tools available to us) to continue to question the hegemony of traditional archives and to help recover subaltern perspectives within their own contexts. 
-	My dataset comes from the Project Gutenberg repository which is a free and open-source resource – thus my dataset does not require a license and is easily accessible to those who have access to the web. Gutenberg offers multiple formats for reading eBooks as well as generating audiobooks. In addition, Gutenberg is compatible with most dyslexic font browser extensions, which helped me greatly when becoming more familiar with my data (i.e. close reading) before performing my computations. For working with text data, Gutenberg meets FAIR’s principles of being findable (within the limits of what Gutenberg has), accessible, interoperable, and reusable. I believe that Python users can also access Gutenberg, and the online resource allows all users to download works as html files, text files, and ebooks that are compatible with devices like kindles. 
-However, the gutenbergr package does make using the corpus I created significantly easier. Thus, those who do not have access to R or RStudio (both are free) for several reasons, may find it difficult download and explore the metadata made available through the package’s functions. 
-	For this dataset, one of the most challenging aspects is that packages such as udpipe as well as data such as R’s “stop_words” rely on heavily on modern English language. The South Carolina interviews with ex-enslaved people replicate individuals’ dialects as well as local early twentieth century English characteristics – therefore, it is likely that there is a higher degree of error in computing semantic relationships and unfolding analyses. This also means that there is inconsistent vocabulary and spellings used throughout the corpus which require more time and consideration to evaluate. 
-	
-A special thanks to the team as CU Boulder’s CRDDS for the excellent help and guidance. 
+## Research Questions
+This project explores the following questions:
 
+- **What does part-of-speech (POS) tagging reveal about noun co-occurrence patterns in interviews with formerly enslaved people?**  
+- **How might these patterns reflect historical consensus or biases?**  
+- **What perspectives can we glean from the interviewees, and what are the limitations of the data?**
+
+---
+
+## Dataset and Methodology
+
+### Dataset
+The text corpus for this project was derived from the first four volumes of *South Carolina’s Slave Narratives: A Folk History of Slavery in the United States from Interviews*, accessible through the [Project Gutenberg](https://www.gutenberg.org) online repository. Using the `gutenbergr` package in RStudio, I downloaded all four volumes along with basic metadata (Gutenberg IDs). The combined text is stored in a dataframe/variable called `scnarratives_works`. A cleaned version of the dataset is included as a CSV file in this repository. As many historians and humanists alike have pointed out, these WPA narratives are quite problematic sources due to how they were collected and their trasncriptions of African American vernacular English. It may be useful to recall James Balwin's words: “Language, incontestably, reveals the speaker. Language, also, far more dubiously, is meant to define the other—and, in this case, the other is refusing to be defined by a language that has never been able to recognize him. People evolve a language in order to describe and thus control their circumstances, or in order not to be submerged by a reality that they cannot articulate. (And, if they cannot articulate it, they are submerged.)” - James Baldwin, “If Black English Isn’t a Language, Then Tell Me, What Is?” (1979). 
+
+### Preprocessing and Annotation
+- **Part-of-Speech Tagging**: I used the `udpipe` package to annotate the corpus, creating the variable `scnarratives_annotated`, which includes POS tags for the text.  
+- **Noun Co-occurrence Analysis**: A skipgram model with a 30-term window was employed to compute noun co-occurrences, a standard approach for textual analysis. This data was used to generate a network graph visualizing relationships between frequently co-occurring terms.
+
+---
+
+## Key Findings
+
+1. **Semantic Connections**: The network graph reveals strong connections between terms like "master" and "slave," reflecting the perspectives of formerly enslaved interviewees.  
+   - Unlike colonial archives, where "slave" is often linked to commodities and labor, the interview data connects the term to familial and community roles, such as "mother."
+   
+2. **Alternate Perspectives**: The data offers insights into how interviewees maintained their identities despite the systemic oppression of slavery, highlighting subaltern perspectives often absent from traditional archives.  
+
+3. **Archival Context**: These narratives emphasize the importance of using digital methods to question dominant historical narratives and recover marginalized voices.
+
+---
+
+## Tools and Accessibility
+
+### Tools Used
+- **R Packages**: `gutenbergr`, `tidyverse`, `udpipe`  
+- **Data Format**: Text data was processed into structured formats, stored in a dataframe, and annotated with POS tags.
+
+### Data Accessibility
+- The dataset originates from Project Gutenberg, a free and open-source resource, and adheres to FAIR principles:  
+  - **Findable**, **Accessible**, **Interoperable**, and **Reusable**.  
+- Project Gutenberg supports multiple formats (HTML, text files, eBooks) and is compatible with tools like dyslexic font browser extensions, enhancing accessibility for researchers.
+
+### Limitations
+- **Dialect and Language Variations**: The interviews preserve local dialects and early 20th-century English characteristics, leading to potential errors in computational analyses.  
+- **Inconsistent Vocabulary**: Irregular spellings and terms require careful manual validation to ensure accuracy.  
+
+---
+
+## Acknowledgments
+A special thanks to the team at CU Boulder’s CRDDS for their excellent guidance and support throughout this project.
+
+## Licenses
+CC0 1.0 Universal
